@@ -2,7 +2,7 @@
 console.dir(window.document);
 
 //save-task button 
-var buttonEl = document.querySelector("#save-task");
+var formEl = document.querySelector("#task-form");
 console.log(buttonEl);
 
 //task-item list append and dynamic styling 
@@ -11,12 +11,13 @@ console.log(buttonEl);
 
 var buttonEl = document.querySelector("#save-task");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
+var createTaskHandler = function(event) {
+    event.preventDefault();
 
-var createTaskHandler = function() {
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
-    listItemEl.textContent = "This is a new task. ";
+    listItemEl.textContent = "This is a new task." ; 
     tasksToDoEl.appendChild(listItemEl);
-}
+};
 
-buttonEl.addEventListener("click", createTaskHandler);
+formEl.addEventListener("submit", createTaskHandler);
